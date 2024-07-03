@@ -1,0 +1,29 @@
+[
+    {
+        "titre": "le grand maulne",
+        "resume": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid deleniti dolorum eveniet fuga incidunt iste magnam minima nihil omnis possimus quae, qui, quod recusandae rem rerum sint sunt voluptatem.",
+        "prix": 25.5,
+        "img": "p2.jpg",
+        "ttc": 30.599999999999998
+    },
+    {
+        "titre": "Les guerres de l'\u00e9toile",
+        "resume": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid deleniti dolorum eveniet fuga incidunt iste magnam minima nihil omnis possimus quae, qui, quod recusandae rem rerum sint sunt voluptatem.",
+        "prix": 28.9,
+        "img": "p4.jpg",
+        "ttc": 34.68
+    },
+    {
+        "titre": "La communaut\u00e9 de l'anneau",
+        "resume": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid deleniti dolorum eveniet fuga incidunt iste magnam minima nihil omnis possimus quae, qui, quod recusandae rem rerum sint sunt voluptatem.",
+        "prix": 30.6,
+        "img": "p6.jpg",
+        "ttc": 36.72
+    },
+    {
+        "titre": "dune",
+        "resume": "sur une planete des sables",
+        "prix": 16.75,
+        "img": "p6.jpg"
+    }
+]

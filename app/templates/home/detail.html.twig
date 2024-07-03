@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page detail article {{ article['titre'] }}{% endblock %}
+
+{% block body %}
+    <div class="ui placeholder segment">
+        <div class="ui small image">
+            <img src="/images/{{ article['img'] }}" alt="l'image de l'article" />
+        </div>
+        <a href="{{ path('homepage') }}">retour</a>
+    </div>
+    <div class="row">
+
+    {{ include("home/templatePart/_menu.html.twig", {list: articles}) }}
+    </div>
+    <p>{{ article['titre'] }}</p>
+    <p>prix : {{ article['ttc'] }}</p>
+{% endblock %}

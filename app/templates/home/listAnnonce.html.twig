@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des annonces{% endblock %}
+
+{% block body %}
+
+    <div class="ui two item menu">
+        <a href="{{ path('homepage') }}" class="item">retour</a>
+        <a href="{{ path('addOrEditAn', {id: -1}) }}" class="item">Ajouter une annonce</a>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="ui message green">
+            <div class="header">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="ui centered cards">
+        {% for annonce in annonces %}
+            <div class="card">
+                <div class="image ui">
+                    <img src="{{ asset('images/annonces/default.webp') }}" alt="une annonce" />
+{#                    <img src="{{ asset('images/'~article['img']) }}" alt="un jolie toutou" />#}
+                </div>
+                <div class="content">
+                    <h5 class="header">{{ annonce.titre }}</h5>
+                    <div class="description">{{ annonce.datePub }}</div>
+                    <div class="description">{{ annonce.description | excerpt(120) }}</div>
+                    <div class="description">prix : {{ annonce.prix | price(2,","," ","€") }}</div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui three buttons">
+                        <a class="ui small basic green button" href="{{ path('detailAn', { id: annonce.id}) }}">det.</a>
+                        <a class="ui small basic orange button" href="{{ path('addOrEditAn', { id: annonce.id}) }}">mod.</a>
+                        <form action="{{ path('delAn', {id: annonce.id}) }}"
+                              method="post" class="" onsubmit="return confirm('Etes-vous sure !!!!')">
+                            <input type="hidden" name="_token" value="{{ csrf_token('deleteAn'~annonce.id) }}" />
+                            <button class="ui small basic red button">Sup.</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+    <div class="ui segment raised purple center aligned">
+        <div class="pagination">
+            {{ knp_pagination_render(annonces) }}
+        </div>
+    </div>
+{% endblock %}
+

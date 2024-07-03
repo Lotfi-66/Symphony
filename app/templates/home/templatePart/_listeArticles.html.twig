@@ -1,0 +1,19 @@
+<div class="ui cards">
+    {% for article in articles %}
+        <div class="card">
+            <div class="image ui small">
+{#                <img src="images/{{ article['img'] }}.jpg" alt="un jolie toutou" />#}
+{#                <img src="{{ asset('images/'~article['img']~'.jpg') }}" alt="un jolie toutou" />#}
+                <img src="{{ asset('images/'~article['img']) }}" alt="un jolie toutou" />
+            </div>
+            <div class="content">
+                <h5 class="header">{{ article['titre'] }}</h5>
+                <div class="description">{{ article['resume'] | excerpt(120) }}</div>
+                <div class="description">prix : {{ article['ttc'] | price(2,","," ","€") }}</div>
+
+            </div>
+{#            <a href="/detail/{{ loop.index0 }}">detail</a>#}
+            <a href="{{ path('detailpage', { numdetail: loop.index0 }) }}">detail</a>
+        </div>
+    {% endfor %}
+</div>

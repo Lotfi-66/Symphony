@@ -1,0 +1,14 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+#app_home:
+#    path: /home
+#    controller: App\Controller\HomeController::bienvenue
+#
+#app_page:
+#    path: /page/{numpage}
+#    controller: App\Controller\HomeController::page
+#    methods: GET

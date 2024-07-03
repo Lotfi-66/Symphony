@@ -1,0 +1,14 @@
+<div class="ui horizontal list">
+    {% for article in list %}
+        <div class="item">
+                <a href="{{ path('detailpage', {numdetail: loop.index0 }) }}">
+                        <img src="/images/{{ article['img'] }}" class="ui avatar image" />
+                        <div class="content">
+                                <div class="header">
+                                        article {{ loop.index0 }}
+                                </div>
+                        </div>
+                </a>
+        </div>
+    {% endfor %}
+</div>

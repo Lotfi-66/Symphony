@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <h1 class="ui block header">Bienvenue sur notre fabuleux site</h1>
+    {{ include("home/templatePart/_menu.html.twig", {list: articles}) }}
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Architecto consectetur consequatur dicta ipsum maiores pariatur praesentium,
+        repellendus saepe sit voluptas. Deserunt ducimus eius error impedit ipsa libero
+        officia possimus soluta?
+    </p>
+    <div class="ui three item menu">
+        <a href="{{ path('listAg') }}" class="item">liste des agences</a>
+        <a href="{{ path('listAn') }}" class="item">liste des annonce</a>
+        <a href="{{ path('addArticle') }}" class="item">Ajoute un article</a>
+    </div>
+
+    <h3>{{ titrepage | title }} le {{ dateDuJour | date("d/m/Y") }}</h3>
+
+    {{ render(path('listArticles', {articles: articles|json_encode() })) }}
+{% endblock %}

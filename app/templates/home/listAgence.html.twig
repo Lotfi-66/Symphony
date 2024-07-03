@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des agences{% endblock %}
+
+{% block body %}
+    <div class="ui two item menu">
+        <a href="{{ path('homepage') }}" class="item">retour</a>
+        <a href="{{ path('addAgence', {id: -1}) }}" class="item">ajout d'une agence</a>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="ui message green">
+            <div class="header">
+               {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="ui message red">
+            <div class="header">
+               {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
+
+<div class="ui celled list">
+    {% for agence in agences %}
+        <div class="item">
+            <a href="{{ path('addAgence', {id: agence.id}) }}" class="right icon ui button orange">
+                <i class="fa-solid fa-pen-to-square"></i></a>
+            <form action="{{ path('delAgence', {id: agence.id}) }}" method="post"
+                  class="right icon"
+                onsubmit="return confirm('Etes-vous vraiement certain de votre choix !!!!')">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete'~agence.id) }}">
+                <button class="ui icon button red"><i class="fa-solid fa-trash"></i></button>
+            </form>
+
+            <div class="content">
+                <div class="header">
+                    {{ agence.nom }}
+                </div>
+                {{ agence.codeAgence }}
+                <em>
+                    {% for capa in agence.capacites %}
+                        {{ capa.capacite }}
+                    {% endfor %}
+                </em>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

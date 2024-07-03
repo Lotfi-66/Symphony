@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'ui form'}})}}
+    <h4 class="ui dividing header">Ajouter un article</h4>
+    <div class="field">
+        {{ form_row(form.titre) }}
+    </div>
+    <div class="field">
+        {{ form_row(form.description) }}
+    </div>
+    <div class="field">
+        <div class="two fields">
+            <div class="field">{{ form_row(form.ville) }}</div>
+            <div class="field">{{ form_row(form.codePostal) }}</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="two fields">
+            <div class="field">{{ form_row(form.prix) }}</div>
+            <div class="field">{{ form_row(form.datePublication) }}</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="three fields">
+            <div class="field">{{ form_row(form.dpe) }}</div>
+            <div class="field">{{ form_row(form.surface) }}</div>
+            <div class="field">{{ form_row(form.nbrPiece) }}</div>
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}

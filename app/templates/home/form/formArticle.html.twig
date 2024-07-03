@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title%}Formulaire article{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'ui form'}})}}
+    <h4 class="ui dividing header">Ajouter un article</h4>
+    <div class="field">
+        <div class="two fields">
+            <div class="field">{{ form_row(form.titre) }}</div>
+            <div class="field">{{ form_row(form.resume) }}</div>
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
